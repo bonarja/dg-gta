@@ -1,0 +1,89 @@
+@import "../../styles/utils.scss";
+
+.hero {
+  background-color: black;
+  overflow: hidden;
+  position: relative;
+}
+.background1 {
+  background-image: url("background.webp");
+  background-size: cover;
+  background-position: center;
+  transform: rotate(45deg) scale(1.4);
+}
+.background2 {
+  background-image: url("palms.webp");
+  background-size: cover;
+  background-position: center 30%;
+  left: 0;
+}
+.background1,
+.background2,
+.logo,
+.gtaLogo,
+.persons,
+._18,
+.role {
+  position: absolute;
+}
+.logo {
+  background-color: black;
+  mix-blend-mode: darken;
+}
+.gtaLogo {
+  mix-blend-mode: lighten;
+  img {
+    opacity: 0;
+    width: 13rem;
+    margin-bottom: -85vh;
+    transform: scale(0.5);
+  }
+}
+.persons {
+  align-items: flex-end !important;
+  img {
+    width: 100%;
+    margin-bottom: -120vh;
+    bottom: -3rem;
+    position: absolute;
+  }
+}
+._18 {
+  width: 5rem;
+  bottom: 3rem;
+  left: 3rem;
+  opacity: 0;
+  transform: translateX(85vw) scale(0.3);
+}
+.role {
+  align-items: flex-start !important;
+  img {
+    width: 20rem;
+    max-width: 500px;
+    transform: translateY(-100%);
+    filter: invert(40%) sepia(98%) saturate(384%) hue-rotate(149deg)
+      brightness(93%) contrast(90%);
+    opacity: 0.7;
+  }
+}
+
+@media (max-aspect-ratio: 3/2) {
+  .gtaLogo img {
+    zoom: 1.2;
+  }
+  .persons img {
+    bottom: 0;
+  }
+}
+
+@include mobile {
+  .persons img {
+    width: 250%;
+  }
+  ._18 {
+    left: 1rem;
+  }
+  .role img {
+    width: 30rem;
+  }
+}

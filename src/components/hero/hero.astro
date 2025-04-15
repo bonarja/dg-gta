@@ -1,0 +1,92 @@
+---
+import Logo from "../logo/logo.astro";
+import "./hero.scss";
+---
+
+<script>
+  import { createTimeline, eases } from "animejs";
+  import { getIsMobile } from "../../utils/utils";
+
+  const isMobile = getIsMobile();
+  const corners = document.querySelectorAll("[data-logo-corner]");
+  const logo = document.querySelector("[data-logo]") as HTMLDivElement;
+  const logoGta = document.querySelector("[data-logogta]") as HTMLDivElement;
+  const letters = document.querySelectorAll("[data-logo] g");
+  const palms = document.querySelector(".background2") as HTMLDivElement;
+  const bg = document.querySelector(".background1") as HTMLDivElement;
+  const persons = document.querySelector("[data-persons]") as HTMLDivElement;
+  const _18 = document.querySelector("[data-18]") as HTMLDivElement;
+  const role = document.querySelector("[data-role]") as HTMLDivElement;
+
+  const timeline = createTimeline();
+  const timelineLogoBorder = createTimeline();
+  const timelineBackgroundPalms = createTimeline();
+  const timelineLogoGta = createTimeline();
+  const timelineBg = createTimeline();
+  const timelinePersons = createTimeline();
+  const timeline18 = createTimeline();
+  const timelineRole = createTimeline();
+
+  timelineLogoBorder.add(corners[0], { translateX : "35rem", duration: 500 }, 1000)
+  timelineLogoBorder.add(corners[1], { translateY : "75rem", duration: 500 }, 1000)
+  timelineLogoBorder.add(corners[2], { translateY : "-75rem", duration: 500 }, 1000)
+  timelineLogoBorder.add(corners[3], { translateX : "-35rem", duration: 500 }, 1000)
+
+  timeline.add(logo, { opacity: 1, scale: 1.5, duration: 1300 });
+  timeline.add(letters[0], { rotate: "35deg", translateX: "200rem", duration: 1000, ease: eases.in() }, 1300);
+  timeline.add(logo, { rotate: "-50deg", duration: 1000, ease: eases.in()  }, 1300);
+  timeline.add(logo, { scale: 20, duration: 1000, ease: eases.in()  }, 1300);
+
+  timeline.add(logo, { rotate: "-103deg", duration: 400, scale: 100, translateX: "1rem", ease: eases.in()  }, 1800);
+  timeline.add(".logo", { opacity: 0  }, 1800);
+
+
+  // palms 
+  timelineBackgroundPalms.add(palms, { scale: 0.8, rotate: "-70deg", duration: 0 }, 0)
+    .add(palms, { scale: 1.3, duration: 1300, rotate: "-60deg", ease: eases.in() })
+    .add(palms, {scale: 1, rotate:0, ease: eases.outQuad, duration: 700 }, 1400)
+
+  // gta logo
+  timelineLogoGta.add(logoGta, { scale: 0.5, opacity: 0, marginBottom: "-85vh", duration: 0 }, 900)
+    .add(logoGta, { scale: 0.65, opacity: 0.6, marginBottom: "-75vh",  duration: 900, ease: eases.in() }, 900)
+    .add(logoGta, { scale: 1, opacity: 1, marginBottom:0,  duration: 600, ease: eases.out() })
+
+  // background
+  timelineBg.add(bg, { scale: 1.4, rotate: "45deg",  duration: 0 }, 0)
+  timelineBg.add(bg, { scale: 1.4, rotate: "15deg",  duration: 1200 })
+    .add(bg, { rotate:"5deg", duration: 1000,  ease: eases.out() })
+
+  // persons
+  timelineLogoGta.add(logoGta, { scale: 1.15, duration: 600, ease: eases.in() }, 2200)
+    .add(logoGta, { scale: isMobile ? 1.8 : 1.4, duration: 200, ease: eases.in() })
+  timelinePersons.add(persons, { scale: 0.95, marginBottom: "-100vh", duration: 0 }, 2200)
+    .add(persons, { scale: 1, marginBottom: "-50vh", duration: 600, ease: eases.out() }, 2200)
+    .add(persons, { scale: 1, marginBottom: "0", duration: 200, ease: eases.out() })
+
+  // 18
+  timeline18.add(_18, { translateX: "85vw", scale: 0.3, duration: 0, opacity: 0  }, 1300)
+    .add(_18, { translateX: "45vw", opacity: 1, scale: 0.8, duration: 1300, ease: eases.out()  })
+    .add(_18, { translateX: 0, scale: 1, duration: 500, ease: eases.out()  })
+
+  // role
+  timelineRole.add(role, { translateY: "-100%", duration: 0 }, 2200)
+    .add(role, { translateY: "1rem", ease: eases.out(), duration: 800 }, 2200)
+</script>
+
+<div class="hero cover">
+  <div class="background1 cover center"></div>
+  <div class="gtaLogo cover center">
+    <img src="gtalogo.png" data-logogta="" />
+  </div>
+  <div class="background2 cover center"></div>
+  <div class="logo cover center">
+    <Logo />
+  </div>
+  <div class="persons cover center">
+    <img data-persons="" src="persons.webp" />
+  </div>
+  <img class="_18" data-18="" src="18.webp" />
+  <div class="role cover center">
+    <img data-role="" src="role.webp" />
+  </div>
+</div>
