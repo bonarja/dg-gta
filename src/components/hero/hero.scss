@@ -1,4 +1,4 @@
-@import "../../styles/utils.scss";
+@use "../../styles/utils.scss" as *;
 
 .hero {
   background-color: black;
@@ -6,13 +6,13 @@
   position: relative;
 }
 .background1 {
-  background-image: url("background.webp");
+  background-image: url("/dg-gta/background.webp");
   background-size: cover;
   background-position: center;
   transform: rotate(45deg) scale(1.4);
 }
 .background2 {
-  background-image: url("palms.webp");
+  background-image: url("/dg-gta/palms.webp");
   background-size: cover;
   background-position: center 30%;
   left: 0;
@@ -27,8 +27,8 @@
   position: absolute;
 }
 .logo {
-  background-color: black;
-  mix-blend-mode: darken;
+  background-color: white;
+  mix-blend-mode: lighten;
 }
 .gtaLogo {
   mix-blend-mode: lighten;

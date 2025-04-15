@@ -1,4 +1,4 @@
-@import "./utils.scss";
+@use "../styles/utils.scss" as *;
 
 :root {
   font-size: 1.38vw;
