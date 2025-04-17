@@ -15,7 +15,7 @@ import "./hero.scss";
   const palms = document.querySelector(".background2") as HTMLDivElement;
   const bg = document.querySelector(".background1") as HTMLDivElement;
   const persons = document.querySelector("[data-persons]") as HTMLDivElement;
-  const _18 = document.querySelector("[data-18]") as HTMLDivElement;
+  const dg = document.querySelector("[data-dg]") as HTMLDivElement;
   const role = document.querySelector("[data-role]") as HTMLDivElement;
 
   const timeline = createTimeline();
@@ -64,9 +64,9 @@ import "./hero.scss";
     .add(persons, { scale: 1, marginBottom: "0", duration: 200, ease: eases.out() })
 
   // 18
-  timeline18.add(_18, { translateX: "85vw", scale: 0.3, duration: 0, opacity: 0  }, 1300)
-    .add(_18, { translateX: "45vw", opacity: 1, scale: 0.8, duration: 1300, ease: eases.out()  })
-    .add(_18, { translateX: 0, scale: 1, duration: 500, ease: eases.out()  })
+  timeline18.add(dg, { translateX: "85vw", scale: 0.3, duration: 0, opacity: 0  }, 1300)
+    .add(dg, { translateX: "45vw", opacity: 1, scale: 0.8, duration: 1300, ease: eases.out()  })
+    .add(dg, { translateX: 0, scale: 1, duration: 500, ease: eases.out()  })
 
   // role
   timelineRole.add(role, { translateY: "-100%", duration: 0 }, 2200)
@@ -85,7 +85,7 @@ import "./hero.scss";
   <div class="persons cover center">
     <img data-persons="" src="/dg-gta/persons.webp" />
   </div>
-  <img class="_18" data-18="" src="/dg-gta/18.webp" />
+  <img class="dg" data-dg="" src="/dg-gta/dg.webp" />
   <div class="role cover center">
     <img data-role="" src="/dg-gta/role.webp" />
   </div>
